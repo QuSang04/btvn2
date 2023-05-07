@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+    <form id="login">
+        <input type="text" name="user" value="">
+        <input type="password" name="pass" value="">
+        <input type="email">
+        <input type="submit" value="Submit" >  
+        <input type="number" name="age" value="">  
+    </form>
+        <p id="errorAge"></p>
+        <p id="errorMSG">   
+        </p>
+        <p id="loipass"></p>
+
+    <script>
+        // bước 1: tìm kiếm element
+        // b2: xử lý 
+        const loginForm = document.getElementById("login")
+        const errorEl = document.getElementById("errorMSG")
+        const errorpass = document.getElementById("loipass")
+        const saituoi = document.getElementById("errorAge")
+        /*
+        loginForm.onclick = function (event){
+            event.preventDefault();
+            console.log("hello")
+        };*/
+        loginForm.addEventListener("submit", function (e) { 
+            e.preventDefault();
+           // console.log("sairoi")
+           const passEl = e.target.pass;
+           const pass = passEl.value;
+           const userEl = e.target.user; // goi lay the  input bang name
+           const user = userEl.value; // lay ra gia tri
+           const ageEl = e.target.age;
+           const age = ageEl.value; 
+           if (user.length < 5) {
+            //alert("vui long nhap ten tren 5 kitu")
+            errorEl.innerHTML = "<h1>loi roi</h1>";
+           } else {
+            errorEl.innerHTML = ""
+           };
+           if (pass.length < 6) {
+            alert("mat khau phai co tren 6 ki tu ")
+           }
+           if ( 18 <= age.length & age.length <=59) {
+            saituoi.innerHTML = " tuoi hop le"
+            
+           } else {
+            saituoi.innerHTML = " <h2> tuoi khong hop le </h2>"
+           }
+        }
+            )
+    </script>
+</body>
+</html>
